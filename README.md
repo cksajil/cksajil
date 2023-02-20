@@ -5,4 +5,4 @@
 - 👯 I’m looking to collaborate on Computational Biology projects
 - 📫 How to reach me: sajilck@gmail.com
 
-![](https://komarev.com/ghpvc/?username=cksajil)
+![](https://intuitivetutorial.com/)
