@@ -4,5 +4,3 @@
 - 🌱 I’m currently learning Computational Biology
 - 👯 I’m looking to collaborate on Machine Learning & Computational Biology projects
 - 📫 How to reach me: sajilck@gmail.com
-
-![](https://komarev.com/ghpvc/?username=cksajil&color=blue)
