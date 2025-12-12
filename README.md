@@ -1,6 +1,6 @@
 ### Hi there 👋
 
 - 🔭 I’m currently working on Python projects
-- 🌱 I’m currently learning Computational Biology
-- 👯 I’m looking to collaborate on Machine Learning & Computational Biology projects
+- 🌱 I’m a life-long learner
+- 👯 I’m looking to collaborate on Machine Learning projects
 - 📫 How to reach me: sajilck@gmail.com
