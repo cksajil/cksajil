@@ -1,7 +1,5 @@
 # Hi there 👋 I'm Sajil
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=cksajil)
-
 ![Visitors](https://komarev.com/ghpvc/?username=cksajil)
 
 Machine Learning Engineer | AI Researcher | PhD in Computational Biology  
