@@ -29,51 +29,6 @@ My interests include **LLMs, computer vision, applied machine learning, and AI s
 
 ---
 
-## 🛠 Tech Stack
-
-**Languages**
-- Python
-- SQL
-- Bash
-
-**ML / AI Frameworks**
-- PyTorch
-- TensorFlow
-- Scikit-Learn
-- HuggingFace Transformers
-
-**LLM & GenAI**
-- LangChain
-- Vector Databases
-- RAG systems
-
-**Tools**
-- Git
-- Docker
-- Linux
-
----
-
-## 📂 Featured Projects
-
-- **Dash Cam Video Segmentation**  
-  Deep learning based segmentation of dash cam videos.
-
-- **LLM FAQ Chatbot**  
-  GPT-based chatbot trained on organization-specific data.
-
-- **Acoustic Rain Gauge (Audio ML)**  
-  IoT + machine learning system for rainfall estimation.
-
----
-
-## 📚 Publications
-
-- IEEE RAICS 2024 – *Edge Analytics Enabled Acoustic Rain Gauge*  
-- International Journal of Biomedical and Clinical Engineering – *Active Noise Control Research*
-
----
-
 ## 🤝 Open to Collaboration
 
 I’m interested in collaborating on:
