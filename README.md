@@ -18,10 +18,10 @@ PhD in Computational Biology · ML Engineer & Educator at ICT Academy of Kerala 
 Most Malayalam speakers will never have a GPU, so everything here is built and measured on **2 CPU cores**.
 
 ```
-🎙️ speech ─► ASR (my Whisper fine-tune / IndicConformer) ─► LangGraph agent + hybrid RAG ─► TTS ─► 🔊 speech
+🎙️ speech ─► ASR (my Whisper fine-tune / IndicConformer) ─► LangGraph agent + hybrid RAG ─► my VITS voice ─► 🔊 speech
 ```
 
-### [Kerala Voice Helpdesk](https://github.com/cksajil/kerala-voice-helpdesk) · LLM agent + RAG
+### [Kerala Voice Helpdesk](https://github.com/cksajil/kerala-voice-helpdesk) · LLM agent + RAG · [🎙️ Try it live](https://sajilck-malayalam-voice-assistant.hf.space)
 A voice assistant that answers Malayalam questions about panchayat services (K-SMART), the weather and the news.
 - **LangGraph** agent with explicit routing, **BM25 + BGE-M3 hybrid retrieval**, and Gemma running locally through llama.cpp
 - **Reliability by design:** fees are calculated in code, not by the LLM; the model must answer `UNSURE` when the retrieved passage doesn't contain the answer, and that becomes a refusal; weather and news numbers go out through templates
@@ -34,10 +34,10 @@ A reproducible, leakage-free benchmark of 6 Malayalam ASR models on accuracy **a
 - **Findings:** IndicConformer matches my Whisper fine-tune's accuracy at **~14× the speed**; one model's 39.7% WER becomes 52.9% on corpora it didn't train on; a CTranslate2 run silently truncated transcripts at 224 tokens
 - Choosing per clip between two recognisers with a character LM: **31.2% → 26.4% WER** (significant, no retraining). I deployed it, then reverted it after measuring that it slowed the voice assistant
 
-**Also in the stack:** my fine-tuned [whisper-small-malayalam-v2](https://huggingface.co/sajilck/whisper-small-malayalam-v2) and its training [corpus](https://huggingface.co/datasets/sajilck/malayalam-asr-corpus), and [IndicF5-TTS-Pipeline](https://github.com/cksajil/IndicF5-TTS-Pipeline): zero-shot voice cloning in 11 Indian languages, sped up on CPU (EPSS step schedules, cached preprocessing, core pinning, bf16) from a real-time factor of ~83× down to single digits.
+**Also in the stack:** my fine-tuned [whisper-small-malayalam-v2](https://huggingface.co/sajilck/whisper-small-malayalam-v2) and its training [corpus](https://huggingface.co/datasets/sajilck/malayalam-asr-corpus), the assistant's voice ([mms-tts-malayalam-sajil](https://huggingface.co/sajilck/mms-tts-malayalam-sajil), a VITS fine-tune), and [IndicF5-TTS-Pipeline](https://github.com/cksajil/IndicF5-TTS-Pipeline): zero-shot voice cloning in 11 Indian languages, sped up on CPU (EPSS step schedules, cached preprocessing, core pinning, bf16) from a real-time factor of ~83× down to single digits.
 **Write-ups:** [leakage in my test set](https://intuitivetutorial.com/2026/10/09/i-re-tested-my-malayalam-asr-model-on-clean-data-part-2/) · [a bug in my own evaluation](https://intuitivetutorial.com/2026/10/11/part-3-retraining-my-malayalam-asr-model-and-a-bug-in-my-own-evaluation/)
 
-`PyTorch` `Transformers` `Whisper` `CTranslate2` `IndicConformer` `ONNX Runtime` `LangGraph` `llama.cpp` `BM25` `BGE-M3` `Tesseract`
+`PyTorch` `Transformers` `Whisper` `CTranslate2` `IndicConformer` `ONNX Runtime` `LangGraph` `llama.cpp` `BM25` `BGE-M3` `VITS` `Tesseract`
 
 ---
 
@@ -45,8 +45,8 @@ A reproducible, leakage-free benchmark of 6 Malayalam ASR models on accuracy **a
 
 | Project | What it shows |
 |---|---|
-| 🎓 [**AI Assignment Grader**](https://github.com/cksajil/ai-assignment-grader) · [demo](https://huggingface.co/spaces/sajilck/ai-assignment-grader) | Grades Jupyter notebooks against a rubric with a **local LLM** (Qwen2.5-Coder via Ollama): typed JSON output, score guardrails in Python, optional sandboxed code execution; Docker + GitHub Actions deploy to HF Spaces |
-| 🔍 [**OmniSense**](https://github.com/cksajil/omnisense) · [demo](https://huggingface.co/spaces/sajilck/omnisense) | Semantic search inside videos: faster-whisper transcription → MiniLM embeddings → FAISS; click a hit and the player jumps to that moment |
+| 🎓 [**AI Assignment Grader**](https://github.com/cksajil/ai-assignment-grader) · [video](https://youtu.be/mn-7UMb5nkE) | Grades Jupyter notebooks against a rubric with a **local LLM** (Qwen2.5-Coder via Ollama): typed JSON output, score guardrails in Python, optional sandboxed code execution; Docker + GitHub Actions deploy to HF Spaces |
+| 🔍 [**OmniSense**](https://github.com/cksajil/omnisense) | Semantic search inside videos: faster-whisper transcription → MiniLM embeddings → FAISS; click a hit and the player jumps to that moment |
 | 💬 [**ICTSahayi**](https://github.com/cksajil/ICTSahayi) | GPT-2 implemented in plain PyTorch and instruction fine-tuned on an FAQ, evaluated against the base model and a retrieval baseline. An honest result: fine-tuning learned the format, not the facts, which makes the case for RAG |
 | ✍️ [**MiniGPT-JAX**](https://github.com/cksajil/mini-gpt-jax-stories) · [demo](https://huggingface.co/spaces/sajilck/mini_story_generator) | Decoder-only transformer built from scratch in **JAX / Flax NNX** and trained on 200k stories on a free GPU, with pre-tokenised, memory-mapped batches to remove the input bottleneck |
 
@@ -56,7 +56,7 @@ A reproducible, leakage-free benchmark of 6 Malayalam ASR models on accuracy **a
 |---|---|
 | 🚗 [**Dash-Cam Segmenter**](https://github.com/cksajil/dash-cam-segmenter) | DeepLabV3+ and U-Net for Indian road scenes (20 classes, mean IoU 0.659) on my own [Kaggle dataset](https://www.kaggle.com/datasets/sajilck/road-segmentation-indian); video or YouTube URL in, segmented video out |
 | 🌧️ [**Acoustic Rain Gauge**](https://github.com/cksajil/rainfall_monitor) | Estimates rainfall from sound (ICFOSS R&D team): Raspberry Pi data acquisition, LSTM on STFT features (R² 0.97), LoRaWAN uplink ([LoraWANPi](https://github.com/cksajil/LoraWANPi)) and a live Grafana dashboard. Published at IEEE RAICS 2024 |
-| ✋ [**Hand Gesture Recognition**](https://github.com/cksajil/hand_gesture_recognition) | Real-time 3D-CNN gesture control (Jester, 8 gestures) of an information display: webcam → PyTorch → Flask-SocketIO, with Raspberry Pi GPIO actions |
+| ✋ [**Hand Gesture Recognition**](https://github.com/cksajil/hand_gesture_recognition) | Touch-free control of an information display: a 3D CNN trained on Jester (8 gestures) reads live webcam clips and drives the pages over Flask-SocketIO; ONNX export for lighter runtimes |
 
 <img src="https://github.com/cksajil/dash-cam-segmenter/blob/main/images/segmented_movie.gif?raw=true" width="420" alt="Dash-cam segmentation output">
 
@@ -72,7 +72,7 @@ A reproducible, leakage-free benchmark of 6 Malayalam ASR models on accuracy **a
 | Area | Tools |
 |---|---|
 | **LLMs & agents** | LangGraph, Ollama, llama.cpp, Hugging Face Transformers, RAG (BM25, dense, hybrid), FAISS, structured JSON output |
-| **Speech** | Whisper fine-tuning, CTranslate2 / faster-whisper, IndicConformer, wav2vec2, F5-TTS, WER/CER evaluation |
+| **Speech** | Whisper fine-tuning, CTranslate2 / faster-whisper, IndicConformer, wav2vec2, VITS and F5-TTS, WER/CER evaluation |
 | **Deep learning** | PyTorch, JAX / Flax, TensorFlow / Keras, scikit-learn |
 | **Vision & edge** | OpenCV, segmentation, 3D CNNs, Raspberry Pi, LoRaWAN |
 | **Shipping** | Docker, Gradio, Flask, Hugging Face Spaces, GitHub Actions, pytest, Linux |
